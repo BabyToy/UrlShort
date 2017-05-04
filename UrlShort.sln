@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrlShort", "UrlShort\UrlShort.csproj", "{5B7295C2-0C98-4FEE-972A-8FFED8AF887E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrlShort.Tests", "UrlShort.Tests\UrlShort.Tests.csproj", "{23841AC1-5B68-4EE9-BF99-BE373258CF85}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B7295C2-0C98-4FEE-972A-8FFED8AF887E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B7295C2-0C98-4FEE-972A-8FFED8AF887E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B7295C2-0C98-4FEE-972A-8FFED8AF887E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B7295C2-0C98-4FEE-972A-8FFED8AF887E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23841AC1-5B68-4EE9-BF99-BE373258CF85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23841AC1-5B68-4EE9-BF99-BE373258CF85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23841AC1-5B68-4EE9-BF99-BE373258CF85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23841AC1-5B68-4EE9-BF99-BE373258CF85}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

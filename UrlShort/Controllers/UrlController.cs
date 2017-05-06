@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using UrlShort.Models;
 
 namespace UrlShort.Controllers
 {
@@ -7,7 +8,19 @@ namespace UrlShort.Controllers
         // GET: Url
         public ActionResult Index()
         {
-            return View();
+            var url = new Url();
+            return View(url);
+        }
+
+        [HttpGet]
+        public ActionResult Index(Url url)
+        {
+            if (ModelState.IsValid)
+            {
+                // construct the short url and return to view
+                // url =
+            }
+            return View(url);
         }
     }
 }

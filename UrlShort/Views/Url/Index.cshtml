@@ -4,7 +4,7 @@
 }
 
 <h2>Index</h2>
-Main view for shortening URLs
+Enter URL to shorten
 
 @using (Html.BeginForm())
 {
@@ -16,5 +16,11 @@ Main view for shortening URLs
                 @class = "form-control"
             })
     </div>
+    if (!string.IsNullOrEmpty(Model.UrlLong))
+    {
+        <div>
+            <a href="@Model.UrlShort" target="_blank">@Model.UrlShort</a>
+        </div>
+    }
     <input type="submit" class="btn btn-primary" value="Shorten" />
 }

@@ -5,8 +5,8 @@ namespace UrlShort.Models
     public class Url
     {
         [Required]
-        public string UrlLong { get; set; }
+        public string LongUrl { get; set; }
 
-        public string UrlShort { get; set; }
+        public string ShortUrl { get; set; }
     }
 }

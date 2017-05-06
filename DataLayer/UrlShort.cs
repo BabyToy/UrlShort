@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DataLayer
 {
-    public class UrlShort
+    public class ShortUrl
     {
         [Key]
         [Column("id")]
@@ -18,5 +18,10 @@ namespace DataLayer
         [Required]
         [Column("DateAdded")]
         public DateTime DateAdded { get; set; }
+
+        [Required]
+        [Column("Segment")]
+        [StringLength(20)]
+        public string Segment { get; set; }
     }
 }

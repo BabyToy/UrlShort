@@ -8,6 +8,6 @@ namespace DataLayer
         {
         }
 
-        public DbSet<UrlShort> ShortUrls { get; set; }
+        public DbSet<ShortUrl> ShortUrls { get; set; }
     }
 }

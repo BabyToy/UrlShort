@@ -25,7 +25,7 @@ namespace UrlShort.Controllers
         {
             if (ModelState.IsValid)
             {
-                url.UrlShort = await this.handler.UrlShorten(url.UrlLong);
+                url.ShortUrl = await this.handler.UrlShorten(url.LongUrl);
             }
             return View(url);
         }

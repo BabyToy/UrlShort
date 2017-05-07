@@ -7,7 +7,7 @@ namespace UrlShort
 {
     public class UrlHandler : IUrlHandler
     {
-        public Task<ShortUrl> UrlShorten(string urlLong, string segment = "")
+        public Task<ShortUrl> UrlShorten(string urlLong, string ip, string segment = "")
         {
             return Task.Run(() =>
             {

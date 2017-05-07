@@ -25,7 +25,13 @@ namespace UrlShort.Controllers
         {
             if (ModelState.IsValid)
             {
-                url.ShortUrl = await this.handler.UrlShorten(url.LongUrl);
+                var shortUrl = await this.handler.UrlShorten(url.LongUrl, Request.UserHostAddress);
+                var requestUrl = Request.Url;
+                url.ShortUrl = string.Format("{0}://{1}{2}{3}",
+                    requestUrl.Scheme,
+                    requestUrl.Authority,
+                    Url.Content("~"),
+                    shortUrl.Segment);
             }
             return View(url);
         }

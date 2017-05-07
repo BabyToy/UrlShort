@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DataLayer
 {
+    [Table("shorturls")]
     public class ShortUrl
     {
         [Key]

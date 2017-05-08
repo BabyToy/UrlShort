@@ -49,18 +49,8 @@ namespace BusinessLayer
                     // throw exception on conflicting segments
                     //if (!string.IsNullOrEmpty(url.Segment))
                     //else
-                    segment = NewSegment();
 
-                    // throw exception if empty
-                    //if (string.IsNullOrEmpty(segment))
-
-                    url = new ShortUrl()
-                    {
-                        UrlLong = urlLong,
-                        DateAdded = DateTime.Now,
-                        Segment = segment
-                    };
-
+                    url = GetShortUrl(context, urlLong, segment);
                     context.ShortUrls.Add(url);
                     context.SaveChanges();
 
@@ -69,23 +59,17 @@ namespace BusinessLayer
             });
         }
 
-        private string NewSegment()
+        public ShortUrl GetShortUrl(ShortContext context, string longUrl, string segment = "")
         {
-            using (var context = new ShortContext())
+            var generator = new Generator(context);
+            segment = generator.NewSegment();
+
+            return new ShortUrl()
             {
-                int idx = 0;
-                while (idx < 30)
-                {
-                    var guid = Guid.NewGuid();
-                    var segment = guid.ToString().Substring(0, 8);
-                    if (!context.ShortUrls.Where(x => x.Segment == segment).Any())
-                    {
-                        return segment;
-                    }
-                    idx++;
-                }
-            }
-            return string.Empty;
+                UrlLong = longUrl,
+                DateAdded = DateTime.Now,
+                Segment = segment
+            };
         }
     }
 }

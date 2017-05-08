@@ -24,5 +24,7 @@ namespace DataLayer
         [Column("Segment")]
         [StringLength(20)]
         public string Segment { get; set; }
+
+        public Stat[] Stats { get; set; }
     }
 }

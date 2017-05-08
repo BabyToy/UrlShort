@@ -9,5 +9,6 @@ namespace DataLayer
         }
 
         public DbSet<ShortUrl> ShortUrls { get; set; }
+        public DbSet<Stat> Stats { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using DataLayer;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using UrlShort.Models;
 
@@ -34,6 +35,13 @@ namespace UrlShort.Controllers
                     shortUrl.Segment);
             }
             return View(url);
+        }
+
+        public async Task<ActionResult> Click(string segment)
+        {
+            var referrer = Request.UrlReferrer == null ? string.Empty : Request.UrlReferrer.ToString();
+            Stat stat = await this.handler.Click(segment, referrer, Request.UserHostAddress);
+            return this.RedirectPermanent(stat.ShortUrl.UrlLong);
         }
     }
 }

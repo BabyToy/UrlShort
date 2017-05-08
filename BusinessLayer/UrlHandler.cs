@@ -1,12 +1,39 @@
 ﻿using DataLayer;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
-using System;
 
 namespace UrlShort
 {
     public class UrlHandler : IUrlHandler
     {
+        public Task<Stat> Click(string segment, string referrer, string userHostAddress)
+        {
+            return Task.Run(() =>
+            {
+                using (var context = new ShortContext())
+                {
+                    var url = context.ShortUrls.Where(x => x.Segment == segment)
+                        .FirstOrDefault();
+
+                    if (url != null)
+                        throw new NotImplementedException();
+
+                    var stat = new Stat()
+                    {
+                        Ip = userHostAddress,
+                        Referrer = referrer,
+                        ShortUrl = url
+                    };
+
+                    context.Stats.Add(stat);
+                    context.SaveChanges();
+
+                    return stat;
+                }
+            });
+        }
+
         public Task<ShortUrl> UrlShorten(string urlLong, string ip, string segment = "")
         {
             return Task.Run(() =>
@@ -49,7 +76,8 @@ namespace UrlShort
                 int idx = 0;
                 while (idx < 30)
                 {
-                    var segment = Guid.NewGuid().ToString().Substring(0, 6);
+                    var guid = Guid.NewGuid();
+                    var segment = guid.ToString().Substring(0, 6);
                     if (!context.ShortUrls.Where(x => x.Segment == segment).Any())
                     {
                         return segment;

@@ -25,16 +25,16 @@ namespace UrlShort.Controllers
 
         public async Task<ActionResult> Index(Url url)
         {
-            if (ModelState.IsValid)
-            {
-                var shortUrl = await this.handler.UrlShorten(url.LongUrl, Request.UserHostAddress);
-                var requestUrl = Request.Url;
-                url.ShortUrl = string.Format("{0}://{1}{2}{3}",
-                    requestUrl.Scheme,
-                    requestUrl.Authority,
-                    Url.Content("~"),
-                    shortUrl.Segment);
-            }
+            if (!ModelState.IsValid)
+                return View(url);
+
+            var shortUrl = await this.handler.UrlShorten(url.LongUrl, Request.UserHostAddress);
+            var requestUrl = Request.Url;
+            url.ShortUrl = string.Format("{0}://{1}{2}{3}",
+                requestUrl.Scheme,
+                requestUrl.Authority,
+                Url.Content("~"),
+                shortUrl.Segment);
             return View(url);
         }
 

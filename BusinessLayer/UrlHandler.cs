@@ -1,6 +1,5 @@
 ﻿using DataLayer;
 using System;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -18,7 +17,7 @@ namespace BusinessLayer
                         .FirstOrDefault();
 
                     if (url == null)
-                        throw new NotImplementedException();
+                        return null;
 
                     var stat = new Stat()
                     {

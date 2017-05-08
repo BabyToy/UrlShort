@@ -16,6 +16,12 @@ namespace UrlShort
             );
 
             routes.MapRoute(
+                name: "Home",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Url", action = "Index" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Url", action = "Index", id = UrlParameter.Optional }

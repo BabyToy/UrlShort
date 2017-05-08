@@ -1,5 +1,6 @@
 ﻿using DataLayer;
 using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -16,7 +17,7 @@ namespace BusinessLayer
                     var url = context.ShortUrls.Where(x => x.Segment == segment)
                         .FirstOrDefault();
 
-                    if (url != null)
+                    if (url == null)
                         throw new NotImplementedException();
 
                     var stat = new Stat()

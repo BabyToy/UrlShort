@@ -4,7 +4,7 @@ namespace DataLayer
 {
     public class ShortContext : DbContext
     {
-        public ShortContext() : base()
+        public ShortContext() : base("UrlShortener")
         {
         }
 

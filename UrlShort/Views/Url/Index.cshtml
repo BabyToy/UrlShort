@@ -11,17 +11,17 @@ Enter URL to shorten
 @using (Html.BeginForm())
 {
     <div class="form-group">
-        @Html.TextBoxFor(model => Model.UrlLong,
+        @Html.TextBoxFor(model => Model.LongUrl,
             new
             {
                 placeholder = "URL to shorten",
                 @class = "form-control"
             })
     </div>
-    if (!string.IsNullOrEmpty(Model.UrlLong))
+    if (!string.IsNullOrEmpty(Model.LongUrl))
     {
         <div>
-            <a href="@Model.UrlShort" target="_blank">@Model.UrlShort</a>
+            <a href="@Model.ShortUrl" target="_blank">@Model.ShortUrl</a>
         </div>
     }
     <input type="submit" class="btn btn-primary" value="Shorten" />

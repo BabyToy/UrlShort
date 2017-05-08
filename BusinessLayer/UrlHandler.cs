@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace UrlShort
+namespace BusinessLayer
 {
     public class UrlHandler : IUrlHandler
     {
@@ -77,7 +77,7 @@ namespace UrlShort
                 while (idx < 30)
                 {
                     var guid = Guid.NewGuid();
-                    var segment = guid.ToString().Substring(0, 6);
+                    var segment = guid.ToString().Substring(0, 8);
                     if (!context.ShortUrls.Where(x => x.Segment == segment).Any())
                     {
                         return segment;

@@ -22,7 +22,7 @@ namespace DataLayer
 
         [Required]
         [Column("Segment")]
-        [StringLength(20)]
+        [StringLength(30)]
         public string Segment { get; set; }
 
         public Stat[] Stats { get; set; }

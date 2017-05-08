@@ -1,7 +1,7 @@
 ﻿using DataLayer;
 using System.Threading.Tasks;
 
-namespace UrlShort
+namespace BusinessLayer
 {
     public interface IUrlHandler
     {
